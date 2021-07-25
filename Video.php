@@ -2,6 +2,7 @@
     require_once 'AcoesVideo.php';
     class Video implements AcoesVideo {
         private $titulo;
+        private $avaliacaoTotal; //Atributo bônus criado para consertar o cálculo da média apresentado no curso, pois o mesmo estava errado; Armazena a soma total das notas
         private $avaliacao;
         private $views;
         private $curtidas;
@@ -19,7 +20,8 @@
 
         public function __construct($ti) {
             $this->titulo = $ti;
-            $this->avaliacao = 1;
+            $this->avaliacaoTotal = 0;
+            $this->avaliacao = 0;
             $this->views = 0;
             $this->curtidas = 0;
             $this->reproduzindo = false;
@@ -31,11 +33,22 @@
         public function setTitulo($t) {
             $this->titulo = $t;
         }
+
+        public function getAvaliacaoTotal() {
+            return $this->avaliacao;
+        }
+        public function setAvaliacaoTotal($a) {
+            $this->avaliacaoTotal = $this->avaliacaoTotal + $a;
+            $this->setAvaliacao($this->avaliacaoTotal); //chama o método para realizar o cálculo da média de avaliações
+        }
         public function getAvaliacao() {
             return $this->avaliacao;
         }
         public function setAvaliacao($a) {
-            $this->avaliacao = $a;
+            //Cálculo CORRIGIDO da média de avaliações
+            /*Obs: O cálculo apresentado no curso estava errado
+            O valor de $a será o valor do atributo avaliacaoTotal*/
+            $this->avaliacao = $a / ($this->views);
         }
         public function getViews() {
             return $this->views;
