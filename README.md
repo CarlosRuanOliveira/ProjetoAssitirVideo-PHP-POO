@@ -5,7 +5,7 @@
   - Praticar todo o conhecimento adquirido durante o curso.  
   - Usar os recursos de POO: Encapsulamento, Herança, Polimorfismo.  
   - O diagrama de classes (UML) que irei seguir neste projeto está na imagem logo abaixo
-  ![Imagem do diagrama de classes](UML-Diagram-Class.png)
+  ![Imagem do diagrama de classes](UML-Diagram-Class.png)  
 **Bônus/Melhorias/Obs:**  
   - O **cálculo da média de avaliações apresentado no curso está INCORRETO**, já que toda vez que alguém assistisse um vídeo a nota somada à avaliação  seria dividida por um número maior de views.  
   Para fazer a correção eu criei um novo atributo para a classe Video (*avaliacaoTotal*), neste atributo é armazenado a soma total das avaliações. Além disso, também modifiquei alguns métodos getters e setters da classe *Visualizacao* para se comunicar com esse novo atributo.  
